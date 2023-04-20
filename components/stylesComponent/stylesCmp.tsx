@@ -14,8 +14,8 @@ export const Wrapper = styled.section`
 
 export const StyleButton = styled.button`
   /* Adapt the colors based on primary prop */
-  background: ${props => props.$primary ? "palevioletred" : "white"};
-  color: ${props => props.$primary ? "white" : "palevioletred"};
+  background: "white";
+  color:  "white" ;
 
   font-size: 1em;
   margin: 1em;
