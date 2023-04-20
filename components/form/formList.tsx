@@ -55,7 +55,7 @@ const FormList = (props: any) => {
                         <List.Item onClick={() => getValue(item.id)} key={item} className={styles.flex_container}>
                             <Link href={""} style={{
                                 width: "100%",
-                                background: specificData.id === item.id ? "#F0F0F0" : null,
+                                background: specificData.id === item.id ? "#F0F0F0" : "",
                                 border: "none", padding: "0.7rem", borderRadius: 10, marginTop: 5,
                             }}>
                                 <List.Item.Meta
