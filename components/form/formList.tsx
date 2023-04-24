@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { FormListSubWrapper } from "../stylesComponent/stylesCmp";
 
-const FormList = (props: any) => {
+const FormList = () => {
     const selector = useTypedSelector((state: any) => state.userReducer.info)
     const [searchArr, setSearchArr] = useState<any>([]);
     const [arrList, setArrList] = useState<any>([])
@@ -21,7 +21,7 @@ const FormList = (props: any) => {
         setArrList(selector)
     }, [selector])
 
-    const ContainerHeight = 500;
+    const ContainerHeight = 300;
     const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
         if (e.currentTarget.scrollHeight - e.currentTarget.scrollTop === ContainerHeight) {
         }
@@ -43,13 +43,14 @@ const FormList = (props: any) => {
             <div className={styles.flex_container}>
                 <SearchBar keyword={keyword} onChange={updateKeyword} />
             </div>
-            <List>
+            <List style={{ marginTop: 20 }}>
                 <VirtualList
                     data={arrList}
                     height={ContainerHeight}
-                    itemHeight={47}
+                    // itemHeight={47}
                     itemKey="email"
                     onScroll={onScroll}
+
                 >
                     {(item) => (
                         <List.Item onClick={() => getValue(item.id)} key={item} className={styles.flex_container}>

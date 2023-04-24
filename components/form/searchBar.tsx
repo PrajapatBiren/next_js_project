@@ -1,13 +1,9 @@
+import { SearchBarStyleCmp } from "../stylesComponent/stylesCmp";
 
 
 const SearchBar = ({ keyword, onChange }: any) => {
-    const BarStyle = {
-        width: "98%", background: "#F0F0F0",
-        border: "none", padding: "0.7rem", borderRadius: 10, marginTop: 5,
-    };
     return (
-        <input
-            style={BarStyle}
+        <SearchBarStyleCmp
             key="search-bar"
             value={keyword}
             placeholder={"search users"}

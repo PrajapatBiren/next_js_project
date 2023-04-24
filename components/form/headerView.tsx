@@ -1,9 +1,10 @@
-import { PlusOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useThunkDispatch, useTypedSelector } from "@/redux/store";
 import { addNewUserAction, editUserData, removeUsersData } from "@/redux/form/reducers";
 import CustomBtn from "../button/button";
+import icons from '@/resources/icons';
+import { HeaderViewWrapper } from "../stylesComponent/stylesCmp";
 
-const HeaderView = (props: any) => {
+const HeaderView = () => {
     const specificData = useTypedSelector((state: any) => state.userReducer.specificData)
     const disableStatus = useTypedSelector((state: any) => state.userReducer.disabled)
     const dispatch = useThunkDispatch()
@@ -25,16 +26,11 @@ const HeaderView = (props: any) => {
         // } else { }
     }
     return (
-        <div>
-            <div style={{
-                width: '20%', display: 'flex', height: 50,
-                justifyContent: 'space-around', alignItems: 'center', paddingTop: 20
-            }}>
-                <CustomBtn onClick={() => editUser()} data={<EditOutlined />} />
-                <CustomBtn onClick={() => addNewUser()} data={<PlusOutlined />} />
-                <CustomBtn onClick={() => deleteUsers()} data={<DeleteOutlined />} />
-            </div>
-        </div>
+        <HeaderViewWrapper >
+            <CustomBtn onClick={() => editUser()} data={<icons.EditOutlined style={{ fontSize: 16 }} />} />
+            <CustomBtn onClick={() => addNewUser()} data={<icons.PlusOutlined style={{ fontSize: 16 }} />} />
+            <CustomBtn onClick={() => deleteUsers()} data={<icons.DeleteOutlined style={{ fontSize: 16 }} />} />
+        </HeaderViewWrapper>
     )
 }
 export default HeaderView

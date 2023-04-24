@@ -8,7 +8,7 @@ import CustomBtn from "../button/button"
 import InputField from "../inputField/inputField"
 import { InnerWrapper, StyleButton } from "../stylesComponent/stylesCmp"
 
-const FormView = (props: any) => {
+const FormView = () => {
 
     const { TextArea } = Input
     const dateFormate = "DD-MM-YYYY"
@@ -19,7 +19,7 @@ const FormView = (props: any) => {
     const [gender, setGender] = useState<any>()
     const [dob, setDob] = useState<any>()
     const dispatch: any = useThunkDispatch()
-    const specificData = useTypedSelector((state: any) => state.userReducer.specificData)
+    const specificData: any = useTypedSelector((state: any) => state.userReducer.specificData)
     const disableStatus = useTypedSelector((state: any) => state.userReducer.disabled)
     useEffect(() => {
         setFirstName(specificData?.firstName),
@@ -60,7 +60,6 @@ const FormView = (props: any) => {
                 dob: dob
             }
             if (email) {
-                props?.setStatus(true)
                 dispatch(updateUserData({ body }));
             } else { }
         } else {
@@ -73,7 +72,6 @@ const FormView = (props: any) => {
                 dob: dob
             }
             if (email) {
-                props?.setStatus(true)
                 dispatch(addUserData({ body }));
                 setFirstName("");
                 setLastName("");
@@ -89,7 +87,6 @@ const FormView = (props: any) => {
         let selectedDate = moment(value, dateFormate);
         setDob(selectedDate)
     }
-    console.log("disableStatus-->", disableStatus);
 
     return (
         <div style={{ width: '65%' }}>
