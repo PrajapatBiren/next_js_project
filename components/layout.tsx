@@ -5,7 +5,7 @@ import Navbar from './navbar/Navbar'
 const name = 'Biren Prajapati';
 export const siteTitle = 'First Website';
 
-export default function Layout({ children, home }: any) {
+export default function Layout({ children }: any) {
     return (
         <div className={styles.container}>
             <Head>
